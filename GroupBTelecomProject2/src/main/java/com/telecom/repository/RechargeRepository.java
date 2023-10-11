@@ -8,6 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import com.telecom.model.Recharge;
 
 public interface RechargeRepository extends JpaRepository<Recharge, Integer> {
+	
+
+
+	public Recharge findByRechargeId(int rechargeId);
+
 
 
 

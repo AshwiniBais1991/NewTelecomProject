@@ -1,10 +1,11 @@
-package com.telecom.service;
+package com.telecom.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.telecom.model.User;
 import com.telecom.repository.UserRepository;
+import com.telecom.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
