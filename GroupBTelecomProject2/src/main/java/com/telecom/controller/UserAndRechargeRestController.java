@@ -40,7 +40,7 @@ public class UserAndRechargeRestController {
 	public Recharge saveRecharge(@RequestBody Recharge recharge) {
 		Recharge recharge1 = rechargeService.saveRecharge(recharge);
 		return recharge1;
-	}
+	
 	/*
 	 * this method is use for delete recharge by id, if recharge is associated with
 	 * user then both user and recharge will get deleted Or if recharge is not

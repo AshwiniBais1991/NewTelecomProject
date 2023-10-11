@@ -1,6 +1,5 @@
 package com.telecom.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +22,7 @@ public class RechargeServiceImpl implements RechargeService {
 		return recharge1;
 	}
 
+
 	/*
 	 * this method is use for delete recharge by id, if recharge is associated with
 	 * user then both user and recharge will get deleted Or if recharge is not
@@ -35,5 +35,4 @@ public class RechargeServiceImpl implements RechargeService {
 	
 	
 	}
-
 }

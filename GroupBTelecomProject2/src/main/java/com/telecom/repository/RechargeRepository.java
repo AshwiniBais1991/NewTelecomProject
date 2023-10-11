@@ -10,6 +10,5 @@ import com.telecom.model.Recharge;
 public interface RechargeRepository extends JpaRepository<Recharge, Integer> {
 
 
-	
 
 }
