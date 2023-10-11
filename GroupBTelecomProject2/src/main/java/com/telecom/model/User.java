@@ -11,13 +11,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 //import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "User_Detail")
+@Table(name = "user")
 public class User {
 
 	/* firstname, lastname, mobilenumber, city, state, country */
@@ -39,7 +42,10 @@ public class User {
 	@Column(name = "Country")
 	private String country;
 
-	@OneToOne(targetEntity = Recharge.class, cascade = CascadeType.ALL)
+	//@OneToOne(targetEntity = Recharge.class, cascade = CascadeType.ALL)
+	
+	@OneToOne(cascade = CascadeType.ALL, mappedBy="user")
+	@JsonManagedReference
 	private Recharge recharge;
 
 	public int getUserId() {
