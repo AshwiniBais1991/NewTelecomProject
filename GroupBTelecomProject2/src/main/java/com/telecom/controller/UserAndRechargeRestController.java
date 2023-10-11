@@ -1,6 +1,8 @@
 package com.telecom.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,7 +40,18 @@ public class UserAndRechargeRestController {
 	public Recharge saveRecharge(@RequestBody Recharge recharge) {
 		Recharge recharge1 = rechargeService.saveRecharge(recharge);
 		return recharge1;
+	
+	/*
+	 * this method is use for delete recharge by id, if recharge is associated with
+	 * user then both user and recharge will get deleted Or if recharge is not
+	 * associated with user then only recharge get deleted
+	 */
+	@DeleteMapping("/deleteRechargeById/{id}")
+	public void deleteRechargeById(@PathVariable Integer id) {
+		rechargeService.deleteRecharge(id);
+
 	}
+	
 	
 	
 }
