@@ -23,9 +23,17 @@ public class RechargeServiceImpl implements RechargeService {
 		return recharge1;
 	}
 
+	/*
+	 * this method is use for delete recharge by id, if recharge is associated with
+	 * user then both user and recharge will get deleted Or if recharge is not
+	 * associated with user then only recharge get deleted
+	 */
+	@Override
+	public void deleteRecharge(int rechargeId) {
+		rechargeRepository.deleteById(rechargeId);
 
 	
 	
-
+	}
 
 }
