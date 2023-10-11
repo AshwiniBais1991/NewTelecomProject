@@ -1,10 +1,11 @@
-package com.telecom.service;
+package com.telecom.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.telecom.model.Recharge;
 import com.telecom.repository.RechargeRepository;
+import com.telecom.service.RechargeService;
 
 @Service
 public class RechargeServiceImpl implements RechargeService {
@@ -34,5 +35,11 @@ public class RechargeServiceImpl implements RechargeService {
 
 	
 	
+	}
+	
+@Override
+	public Recharge findByRechargeId(int rechargeId) {
+		Recharge recharge = rechargeRepository.findByRechargeId(rechargeId);
+		return recharge;
 	}
 }

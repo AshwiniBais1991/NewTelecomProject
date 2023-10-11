@@ -7,6 +7,7 @@ public interface RechargeService {
 
 	 public void deleteRecharge(int rechargeId);
 
-	 
+
+	 public Recharge findByRechargeId(int rechargeId);
 
 }

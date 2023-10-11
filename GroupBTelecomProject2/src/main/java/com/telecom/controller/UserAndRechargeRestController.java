@@ -2,6 +2,7 @@ package com.telecom.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,7 +41,7 @@ public class UserAndRechargeRestController {
 	public Recharge saveRecharge(@RequestBody Recharge recharge) {
 		Recharge recharge1 = rechargeService.saveRecharge(recharge);
 		return recharge1;
-	
+	}
 	/*
 	 * this method is use for delete recharge by id, if recharge is associated with
 	 * user then both user and recharge will get deleted Or if recharge is not
@@ -50,6 +51,16 @@ public class UserAndRechargeRestController {
 	public void deleteRechargeById(@PathVariable Integer id) {
 		rechargeService.deleteRecharge(id);
 
+	}
+	
+	/*
+	 * Get Recharge data by id which we pass from postman
+	 */
+	
+	@GetMapping("/getRechargeById/{id}")
+	public Recharge getRechargeById(@PathVariable Integer id) {
+		Recharge recharge = rechargeService.findByRechargeId(id);
+		return recharge;
 	}
 	
 	
