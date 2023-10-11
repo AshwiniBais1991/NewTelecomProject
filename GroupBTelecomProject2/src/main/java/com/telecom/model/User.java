@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user")
+
 public class User {
 
 	/* firstname, lastname, mobilenumber, city, state, country */
@@ -41,8 +42,6 @@ public class User {
 	private String state;
 	@Column(name = "Country")
 	private String country;
-
-	//@OneToOne(targetEntity = Recharge.class, cascade = CascadeType.ALL)
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy="user")
 	@JsonManagedReference
