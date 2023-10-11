@@ -4,6 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+
+import javax.persistence.CascadeType;
+
+
 //import java.util.Calendar;
 //import java.util.Date;
 
@@ -12,13 +16,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name = "Recharge_Plans")
 public class Recharge {
 	/*
-	 * pack validity in days, total data in gb, total SMS, Amount, plan purchase date,Plan Expiry date
+
+	 * pack validity in days, total data in gb, total SMS, Amount, plan purchase
+	 * date,Plan Expiry date
+
 	 */
 
 	@Id
@@ -39,6 +52,20 @@ public class Recharge {
 	private String purchaseDate;
 	@Column(name = "plan_expiry_date")
 	private String userPlanExpiryDate;
+
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	@JsonBackReference
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getRechargeId() {
 		return rechargeId;
